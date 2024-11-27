@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadstock Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .add-row {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .add-row:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            font-family: sans-serif;
+            padding: 10px 20px;
+            background-color: white; /* Optional: Change background color */
+        }
+        .header img {
+            margin-left: 20%;
+            height: 100px; /* Adjust logo size as needed */
+        }
+    </style>
+</head>
+<body>
+<!--    <div class="header">
+        <img src="C:\Users\asus\Downloads\asorg.jpg" alt="Logo">
+    </div>  -->
+    <h1>Deadstock Management System</h1>
+    <table id="deadstockTable">
+        <thead>
+            <tr>
+                <th>Sr. No.</th>
+                <th>Year of Purchase</th>
+                <th>Name of Equipment</th>
+                <th>Deadstock No.</th>
+                <th>Model Number</th>
+                <th>Price</th>
+                <th>Type</th>
+                <th>Quantity</th>
+                <th>Supplier Name</th>
+                <th>Installation Date</th>
+                <th>Warranty/Guarantee</th>
+                <th>Installation Lab/Place</th>
+                <th>Condition</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="number" placeholder="1" readonly></td>
+                <td>
+                    <select>
+                        <option value="">2024-25</option>
+                        <option value="">2023-24</option>
+                        <option value="">2022-23</option>
+                        <option value="">2021-22</option>
+                        <option value="">2019-20</option>
+                        <option value="">Other</option>
+                    </select>
+                </td>
+                <td><input type="text" placeholder="Equipment Name"></td>
+                <td><input type="text" placeholder="Deadstock No."></td>
+                <td><input type="text" placeholder="Model Number"></td>
+                <td><input type="number" placeholder="Price"></td>
+                <td>
+                    <select>
+                        <option value="">Software</option>
+                        <option value="">Hardware</option>
+                        <option value="">Other</option>
+                    </select>
+                </td>
+                <td><input type="number" placeholder="Quantity"></td>
+                <td><input type="text" placeholder="Supplier Name"></td>
+                <td><input type="date"></td>
+                <td>
+                    <select>
+                        <option value="">1 Year</option>
+                        <option value="">2 Years</option>
+                        <option value="">3 Years</option>
+                        <option value="">4 Years</option>
+                        <option value="">5 Years</option>
+                        <option value="">N/A</option>
+                    </select>
+                </td>
+                <td><input type="text" placeholder="Lab/Place"></td>
+                <td>
+                    <select>
+                        <option value="">Working</option>
+                        <option value="">Not-Working</option>
+                        <option value="">Other</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="add-row" onclick="addRow()">Add Row</button>
+    <footer>
+        &copy; Designed by: Roshani Pravin Mali<br>
+        &copy; Developed by: ASORG SOFTTECH INDIA PRIVATE LIMITED
+    </footer>
+
+    <script>
+        function addRow() {
+            const table = document.getElementById('deadstockTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+
+            // Get the current row count for Sr. No.
+            const rowCount = table.rows.length;
+
+            // Define the structure of the new row
+            newRow.innerHTML = `
+                <td><input type="number" value="${rowCount}" readonly></td>
+                <td>
+                    <select>
+                        <option value="">2024-25</option>
+                        <option value="">2023-24</option>
+                        <option value="">2022-23</option>
+                        <option value="">2021-22</option>
+                        <option value="">2019-20</option>
+                        <option value="">Other</option>
+                    </select>
+                </td>
+                <td><input type="text" placeholder="Equipment Name"></td>
+                <td><input type="text" placeholder="Deadstock No."></td>
+                <td><input type="text" placeholder="Model Number"></td>
+                <td><input type="number" placeholder="Price"></td>
+                <td>
+                    <select>
+                        <option value="">Software</option>
+                        <option value="">Hardware</option>
+                        <option value="">Other</option>
+                    </select>
+                </td>
+                <td><input type="number" placeholder="Quantity"></td>
+                <td><input type="text" placeholder="Supplier Name"></td>
+                <td><input type="date"></td>
+                <td>
+                    <select>
+                        <option value="">1 Year</option>
+                        <option value="">2 Years</option>
+                        <option value="">3 Years</option>
+                        <option value="">4 Years</option>
+                        <option value="">5 Years</option>
+                        <option value="">N/A</option>
+                    </select>
+                </td>
+                <td><input type="text" placeholder="Lab/Place"></td>
+                <td>
+                    <select>
+                        <option value="">Working</option>
+                        <option value="">Not-Working</option>
+                        <option value="">Other</option>
+                    </select>
+                </td>`;
+        }
+    </script>
+</body>
+</html>
+
